@@ -13,10 +13,11 @@ import dotenv
 # client_id = os.getenv("CLIENT_ID")
 # client_secret = os.getenv("CLIENT_SECRET")
 
+# set up client details (moved down from above)
 client_id = input('Please enter your client_id: ')
 client_secret = input('Please enter your client secret: ')
 
-# main data dict
+# main data (stats, songs, etc)
 data = {
         "songs": {
             "Muppets Most Wanted": "3Z1dw9cLeFAyhvkXdn6P5G",
