@@ -89,14 +89,14 @@ speed = constants['speed']
 minPerMile = constants['minPerMile']
 
 # get destination info (use google API later?)
-distance = int(input('How far is your destination, in miles? \n-> '))
+distance = int(input('How far is your destination, in miles? \n--> '))
 
 # get album choice
 print('-----------------------------')
 print('Please choose from the following albums:')
 for key, album in zip(key_iter, album_iter):
     print(f"- {key}: {album}")
-choice = int(input('-> '))
+choice = int(input('--> '))
 album_id = album_list[key_list[choice]]
 print('-----------------------------')
 
