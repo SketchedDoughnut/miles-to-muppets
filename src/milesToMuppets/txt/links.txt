@@ -3,3 +3,7 @@ YT
 
 OTHER
 - https://developer.spotify.com/documentation/web-api/reference/get-an-album
+
+PACKAGING
+- https://gist.github.com/nazrulworld/3800c84e28dc464b2b30cec8bc1287fc
+- https://packaging.python.org/en/latest/tutorials/packaging-projects/
