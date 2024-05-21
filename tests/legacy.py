@@ -143,14 +143,3 @@ class MilesToMuppets:
         #     - mile distance: {self.mile_distance}
         #     - minute distance: {self.minute_distance}
         #     - ms distance: {self.ms_distance}""")
-
-
-
-
-mtm.set_mile_distance(30)
-choices = mtm.key_list
-print(choices)
-choice = mtm.choose_song(1)
-print(choice)
-result = mtm.evaluate_album()
-print(result)
