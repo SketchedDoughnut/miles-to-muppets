@@ -53,8 +53,6 @@ class MilesToMuppets:
         self.constants['defMphSpeed'] = speed
         self.constants['defMinPerMile'] = 60 / speed
 
-
-
     def choose_album(self, song_choice: int) -> dict:
         '''chooses a song from the "key_list" dictionary'''
         album_id = self.album_list[self.key_list[song_choice]]
