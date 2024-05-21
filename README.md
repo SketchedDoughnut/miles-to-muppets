@@ -19,14 +19,14 @@ A calculator that converts mile distance to how many Muppets songs you can liste
 - next, set the distance you are going, in miles. This number can be anything, but 60 is used as an example here. <br>
   `foo.set_mile_distance(60)`
 
-- set the speed at which you are traveling, in mph. This number can be anything, but 30 is used as an example here. <br>
+- set the speed at which you are traveling, in mph. This number can be anything, but 30 is used as an example here. If you do not set a speed, it defaults to 60. <br>
 `foo.set_speed(30)`
 
 - choose what album you want to use. To do this, you need to print out the list of valid albums and pick the number associated with it. You can do this by requesting the current album dictionary, as shown below. <br>
     - `albums = foo.key_list` <br>
 
-- then, put your selection into the following function. In this case, we are using 1. <br>
-`foo.choose_album(1)`
+- then, put your selection into the following function. In this case, we are using 0. <br>
+`foo.choose_album(0)`
 
 - finally, run the function to evaluate the album and return a dictionary with the results.<br>
 `foo.evaluate_album()`

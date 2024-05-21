@@ -14,7 +14,7 @@ packages = [
 
 [project]
 name = "MilesToMuppets"
-version = "0.0.10"
+version = "0.0.11"
 authors = [
   { name="Sketched Doughnut", email="sketcheddoughnut@gmail.com" },
 ]
