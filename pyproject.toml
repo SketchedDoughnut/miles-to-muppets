@@ -7,18 +7,20 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = [
-    "src/milesToMuppets"
+    "src/milesToMuppets",
+    "src/data",
+    "src/functions"
 ]
 
 [project]
 name = "MilesToMuppets"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
   { name="Sketched Doughnut", email="author@example.com" },
 ]
 description = "A conversion package to convert Miles to how many songs you can listen to from the Muppets Album"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",

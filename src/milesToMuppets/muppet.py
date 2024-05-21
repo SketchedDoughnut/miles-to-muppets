@@ -6,8 +6,8 @@ import time
 import requests
 
 # files
-from data import *
-from functions import *
+from .data import *
+from .functions import *
 
 class MilesToMuppets:
     def __init__(self, client_id: str, client_secret: str, output_mode: str= 'null') -> None:
