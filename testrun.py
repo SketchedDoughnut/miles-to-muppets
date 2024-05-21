@@ -1,14 +1,11 @@
-# please move this into the root directory, the same one where "src" is when running this test.
+import src.milesToMuppets as m
 
-from src.milesToMuppets import muppet
-
-
-foo = muppet.MilesToMuppets(
-    client_id="x",
-    client_secret="x"
+foo = m.MilesToMuppets(
+    client_id='x',
+    client_secret='x'
 )
 
-foo.set_mile_distance(60)
-foo.set_speed(30)
+foo.set_mile_distance(1.1)
+foo.set_speed(2.2)
 foo.set_album(0)
 foo.evaluate_album()

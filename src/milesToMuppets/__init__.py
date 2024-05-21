@@ -1,1 +1,2 @@
-# print(f'Miles To Muppets: for documentation, go to: https://pypi.org/project/MilesToMuppets/')
+# essentially just an extension file
+from .muppet import *
