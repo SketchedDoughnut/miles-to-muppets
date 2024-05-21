@@ -14,9 +14,9 @@ packages = [
 
 [project]
 name = "MilesToMuppets"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
-  { name="Sketched Doughnut", email="author@example.com" },
+  { name="Sketched Doughnut", email="sketcheddoughnut@gmail.com" },
 ]
 description = "A conversion package to convert Miles to how many songs you can listen to from the Muppets Album"
 readme = "README.md"
@@ -27,6 +27,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-# [project.urls]
-# Homepage = "https://github.com/pypa/sampleproject"
-# Issues = "https://github.com/pypa/sampleproject/issues"
+[project.urls]
+Homepage = "https://github.com/SketchedDoughnut/miles-to-muppets"
+Issues = "https://github.com/SketchedDoughnut/miles-to-muppets/issues"
