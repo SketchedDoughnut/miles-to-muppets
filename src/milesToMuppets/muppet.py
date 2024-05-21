@@ -1,6 +1,7 @@
 # builtins
 import sys
 import time
+import os
 
 # imports
 import requests
@@ -10,7 +11,7 @@ from .data import *
 from .functions import *
 
 class MilesToMuppets:
-    def __init__(self, client_id: str, client_secret: str, output_mode: str= 'null') -> None:
+    def __init__(self, client_id: str, client_secret: str, output_mode: str= 'no_print') -> None:
         # set up internal 
         DATA = data
         CONSTANTS = DATA['constants']
@@ -70,7 +71,8 @@ class MilesToMuppets:
         total_ms = 0
         song_amount = 0
         found_max = False
-        leng = "                                                                                      "
+        width = os.get_terminal_size()[0]
+        spacing = " " * width
         if print_cycle:
             print('-----------------------------\n')
         for track in self.tracks:
@@ -78,7 +80,7 @@ class MilesToMuppets:
             duration_ms = track['duration_ms']
             if print_cycle:
                 sys.stdout.write("\033[F")
-                sys.stdout.write(f"{leng}\n{leng}")
+                sys.stdout.write(f"{spacing}\n{spacing}")
                 sys.stdout.write("\033[F")
                 sys.stdout.write(f"\rsong name: {name}\nduration: {duration_ms}ms")
                 sys.stdout.flush()
@@ -103,5 +105,6 @@ class MilesToMuppets:
             'songs listened': song_amount,
             'mile distance': self.mile_distance,
             'minute distance': self.minute_distance,
-            'ms distance': self.ms_distance
+            'ms distance': self.ms_distance,
+            'leftover minute(s)':  minute_leftover
         }
