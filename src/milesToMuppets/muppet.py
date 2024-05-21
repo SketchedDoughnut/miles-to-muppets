@@ -11,7 +11,7 @@ from .data import *
 from .functions import *
 
 class MilesToMuppets:
-    def __init__(self, client_id: str, client_secret: str, output_mode: str= 'no_print') -> None:
+    def __init__(self, client_id: str, client_secret: str, do_print: bool = False) -> None:
         # set up internal 
         DATA = data
         CONSTANTS = DATA['constants']
@@ -31,13 +31,22 @@ class MilesToMuppets:
         self.min_per_mile = CONSTANTS['defMinPerMile']
 
         # print DATA
-        if output_mode == 'print':
+        if do_print == True:
             print('-----------------------------')
             print("SESSION DATA:")
             print("Token:", self.TOKEN)
             print("Auth header:", self.AUTH_HEADER)
             print('-----------------------------')
 
+    def get_help(self) -> None:
+        info_help()
+
+    def get_license(self) -> None:
+        info_license()
+
+    def get_credits(self) -> None:
+        info_credits()
+        
     def get_session_data(self) -> dict:
         return {
             'token': self.TOKEN,
@@ -66,7 +75,7 @@ class MilesToMuppets:
             "total songs": self.song_count
         }
     
-    def evaluate_album(self, print_cycle: bool = True) -> dict:
+    def evaluate_album(self, print_cycle: bool = True, do_delay: bool = True) -> dict:
         '''evaluates the album'''
         total_ms = 0
         song_amount = 0
@@ -84,7 +93,8 @@ class MilesToMuppets:
                 sys.stdout.write("\033[F")
                 sys.stdout.write(f"\rsong name: {name}\nduration: {duration_ms}ms")
                 sys.stdout.flush()
-                time.sleep(0.15)
+                if do_delay:
+                    time.sleep(0.15)
 
             if total_ms >= self.ms_distance:
                 found_max = True

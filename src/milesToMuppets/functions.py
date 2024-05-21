@@ -37,6 +37,7 @@ def get_auth_header(token: str) -> dict:
 
 
 
+
 # UNIT CONVERSIONS
 def hourToMs(num: float) -> float:
     # hour to min
@@ -69,3 +70,18 @@ def msToMinute(num: float) -> float:
     # second to minute
     output = output / 60
     return output
+
+
+
+
+
+# HELPERS
+def info_help() -> None:
+    print('For help, go to the documentation: https://pypi.org/project/MilesToMuppets/')
+    print('Alternatively, go to the github page: https://github.com/SketchedDoughnut/miles-to-muppets')
+
+def info_license() -> None:
+    print('This code is licensed under "Apache License". Check the Github for more information (refer to help())')
+
+def info_credits() -> None:
+    print('This project is created and maintained by Sketched Doughnut.')
