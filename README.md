@@ -3,7 +3,7 @@ A calculator that converts mile distance to how many Muppets songs you can liste
 
 # Setup
 
-- first, import **miletomuppets** <br>
+- first, import muppet from milesToMuppets <br>
 `from milesToMuppets import muppet` <br>
 
 - in the code, set up your class object, passing in your Spotify client id and client secret (which can be obtained from Spotify for Developers for free) <br>
