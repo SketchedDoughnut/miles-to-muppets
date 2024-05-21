@@ -14,13 +14,13 @@ packages = [
 
 [project]
 name = "MilesToMuppets"
-version = "0.0.5"
+version = "0.0.6"
 authors = [
   { name="Sketched Doughnut", email="sketcheddoughnut@gmail.com" },
 ]
 description = "A conversion package to convert Miles to how many songs you can listen to from the Muppets Album"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
