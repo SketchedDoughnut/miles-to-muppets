@@ -26,7 +26,7 @@ A calculator that converts mile distance to how many Muppets songs you can liste
     - `albums = foo.key_list` <br>
 
 - then, put your selection into the following function. In this case, we are using 0. <br>
-`foo.choose_album(0)`
+`foo.set_album(0)`
 
 - finally, run the function to evaluate the album and return a dictionary with the results.<br>
 `foo.evaluate_album()`

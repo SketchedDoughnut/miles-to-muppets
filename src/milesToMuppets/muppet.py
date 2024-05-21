@@ -7,11 +7,13 @@ import os
 import requests
 
 # files
-from .data import *
-from .functions import *
+from .data import data
 
 class MilesToMuppets:
     def __init__(self, client_id: str, client_secret: str, do_print: bool = False) -> None:
+        # imports
+        from .functions import get_token, get_auth_header
+
         # set up internal 
         DATA = data
         CONSTANTS = DATA['constants']
@@ -21,6 +23,7 @@ class MilesToMuppets:
         self.constants = CONSTANTS
         self.key_list = KEY_LIST
         self.album_list = ALBUM_LIST
+
 
         # get token, auth_header
         self.TOKEN = get_token(client_id, client_secret)
@@ -38,13 +41,19 @@ class MilesToMuppets:
             print("Auth header:", self.AUTH_HEADER)
             print('-----------------------------')
 
+
+
+
     def get_help(self) -> None:
+        from .functions import info_help
         info_help()
 
     def get_license(self) -> None:
+        from .functions import info_license
         info_license()
 
     def get_credits(self) -> None:
+        from .functions import info_credits
         info_credits()
         
     def get_session_data(self) -> dict:
@@ -52,8 +61,15 @@ class MilesToMuppets:
             'token': self.TOKEN,
             'auth header': self.AUTH_HEADER
         }
+    
+
+
+
     def set_mile_distance(self, distance: float) -> None:
         '''set the distance you intend to travel, in miles'''
+        # imports
+        from .functions import minuteToMs
+
         self.mile_distance = distance
         self.minute_distance = self.min_per_mile * self.mile_distance
         self.ms_distance = minuteToMs(self.minute_distance)
@@ -63,7 +79,7 @@ class MilesToMuppets:
         self.constants['defMphSpeed'] = speed
         self.constants['defMinPerMile'] = 60 / speed
 
-    def choose_album(self, song_choice: int) -> dict:
+    def set_album(self, song_choice: int) -> dict:
         '''chooses a song from the "key_list" dictionary'''
         album_id = self.album_list[self.key_list[song_choice]]
         self.ALBUM_DATA = requests.get(f'https://api.spotify.com/v1/albums/{album_id}', headers=self.AUTH_HEADER).json()
@@ -77,6 +93,10 @@ class MilesToMuppets:
     
     def evaluate_album(self, print_cycle: bool = True, do_delay: bool = True) -> dict:
         '''evaluates the album'''
+
+        # imports
+        from .functions import msToMinute
+
         total_ms = 0
         song_amount = 0
         found_max = False
