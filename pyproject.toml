@@ -14,7 +14,7 @@ packages = [
 
 [project]
 name = "MilesToMuppets"
-version = "0.0.6"
+version = "0.0.7"
 authors = [
   { name="Sketched Doughnut", email="sketcheddoughnut@gmail.com" },
 ]
@@ -25,6 +25,9 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
+]
+dependencies = [
+  "requests"
 ]
 
 [project.urls]
