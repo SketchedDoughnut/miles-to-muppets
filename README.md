@@ -23,7 +23,7 @@ A calculator that converts mile distance to how many Muppets songs you can liste
 `foo.set_speed(30)`
 
 - choose what album you want to use. To do this, you need to print out the list of valid albums and pick the number associated with it. You can do this by requesting the current album dictionary, as shown below. <br>
-    - `albums = foo.get_albums()` <br>
+`albums = foo.get_albums()` <br>
 
 - then, put your selection into the following function. In this case, we are using 0. <br>
 `foo.set_album(0)`
