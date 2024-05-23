@@ -33,7 +33,7 @@ A calculator that converts mile distance to how many Muppets songs you can liste
     - If you want to enable printing, set "print_cycle" to false. <br>
     `foo.evaluate_album(print_cycle = True)`
     - If you want to disable the delay between prints, set "do_delay" to false. <br>
-    `foo.evaluate_album(do_delay = False)
+    `foo.evaluate_album(do_delay = False)`
 
 
 # Other functions
