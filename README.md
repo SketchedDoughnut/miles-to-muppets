@@ -7,7 +7,7 @@ A calculator that converts mile distance to how many Muppets songs you can liste
     - `pip install milesToMuppets`
     - `python3 -m pip install milesToMuppets`
 
-- next, import muppet from milesToMuppets <br>
+- next, import milesToMuppets (in this case, we rename it to muppet) <br>
 `import milesToMuppets as muppet` <br>
 
 - in the code, set up your class object, passing in your Spotify client id and client secret (which can be obtained from Spotify for Developers for free) <br>
@@ -23,15 +23,15 @@ A calculator that converts mile distance to how many Muppets songs you can liste
 `foo.set_speed(30)`
 
 - choose what album you want to use. To do this, you need to print out the list of valid albums and pick the number associated with it. You can do this by requesting the current album dictionary, as shown below. <br>
-    - `albums = foo.key_list` <br>
+    - `albums = foo.get_albums()` <br>
 
 - then, put your selection into the following function. In this case, we are using 0. <br>
 `foo.set_album(0)`
 
 - finally, run the function to evaluate the album and return a dictionary with the results.<br>
 `foo.evaluate_album()`
-    - If you want to disable printing, set "print_cycle" to false. <br>
-    `foo.evaluate_album(print_cycle = False)`
+    - If you want to enable printing, set "print_cycle" to false. <br>
+    `foo.evaluate_album(print_cycle = True)`
     - If you want to disable the delay between prints, set "do_delay" to false. <br>
     `foo.evaluate_album(do_delay = False)
 

@@ -22,13 +22,12 @@ def get_token(client_id, client_secret) -> str:
     data = {
         "grant_type": "client_credentials"
     }
-    results = requests.post(url, headers=headers, data=data).json()
+    results = requests.post(url, headers=headers, data=data).json() # post data, get back results
     token = results['access_token']
-
     return token
 
 # get auth header from spotify
-def get_auth_header(token: str) -> dict:
+def get_auth_header(token: str) -> dict: # essentially just sets up a formatted header for future requests
     ''' gets the authorization header from spotify '''
     return {
         "Authorization": "Bearer " + token
@@ -39,7 +38,7 @@ def get_auth_header(token: str) -> dict:
 
 
 # UNIT CONVERSIONS
-def hourToMs(num: float) -> float:
+def hourToMs(num: float) -> float: # converts hours to millisecond
     # hour to min
     output = num * 60
     # min to second
@@ -48,7 +47,7 @@ def hourToMs(num: float) -> float:
     output = output * 1000
     return output
 
-def msToHour(num: float) -> float:
+def msToHour(num: float) -> float: # converts milliseconds to hour
     # ms to second
     output = num / 1000
     # second to minute
@@ -57,14 +56,14 @@ def msToHour(num: float) -> float:
     output = output / 60
     return output
 
-def minuteToMs(num: float) -> float:
+def minuteToMs(num: float) -> float: # converts minutes to milliseconds
     # minute to second
     output = num * 60
     # second to ms
     output = output * 1000
     return output
 
-def msToMinute(num: float) -> float:
+def msToMinute(num: float) -> float: # converts milliseconds to minutes
     # ms to second
     output = num / 1000
     # second to minute
@@ -81,7 +80,7 @@ def info_help() -> None:
     print('Alternatively, go to the github page: https://github.com/SketchedDoughnut/miles-to-muppets')
 
 def info_license() -> None:
-    print('This code is licensed under "Apache License". Check the Github for more information (refer to help())')
+    print('This code is licensed under "Apache License". Check the Github for more information (refer to get_help())')
 
 def info_credits() -> None:
     print('This project is created and maintained by Sketched Doughnut.')

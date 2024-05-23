@@ -3,13 +3,15 @@ import sys
 import time
 import os
 
-# imports
+# installed
 import requests
 
 # files
 from .data import data
 
+# the general class for milesToMuppets
 class MilesToMuppets:
+    # sets up spotify API connection, gets data from that (as well as loads data from data file)
     def __init__(self, client_id: str, client_secret: str, do_print: bool = False) -> None:
         # imports
         from .functions import get_token, get_auth_header
@@ -29,11 +31,11 @@ class MilesToMuppets:
         self.TOKEN = get_token(client_id, client_secret)
         self.AUTH_HEADER = get_auth_header(self.TOKEN)
 
-        # set up vals
+        # set up numbers for calculations later
         self.mph_speed = CONSTANTS['defMphSpeed']
         self.min_per_mile = CONSTANTS['defMinPerMile']
 
-        # print DATA
+        # print the session data, if requested
         if do_print == True:
             print('-----------------------------')
             print("SESSION DATA:")
@@ -42,20 +44,27 @@ class MilesToMuppets:
             print('-----------------------------')
 
 
+    ## GETTER FUNCTIONS
+    # gets all current albums
+    def get_albums(self) -> dict:
+        return self.key_list
 
-
+    # gets a help message
     def get_help(self) -> None:
         from .functions import info_help
         info_help()
 
+    # gets the license this program is under
     def get_license(self) -> None:
         from .functions import info_license
         info_license()
 
+    # prints the credits, in this case crediting me
     def get_credits(self) -> None:
         from .functions import info_credits
         info_credits()
-        
+    
+    # returns the current spotify session data in a dict
     def get_session_data(self) -> dict:
         return {
             'token': self.TOKEN,
@@ -64,21 +73,23 @@ class MilesToMuppets:
     
 
 
-
+    # sets the distance they intend to travel, in miles
     def set_mile_distance(self, distance: float) -> None:
         '''set the distance you intend to travel, in miles'''
         # imports
         from .functions import minuteToMs
-
+        # calculations, conversions
         self.mile_distance = distance
         self.minute_distance = self.min_per_mile * self.mile_distance
         self.ms_distance = minuteToMs(self.minute_distance)
 
+    # sets the average speed they are traveling at, in mph
     def set_speed(self, speed: float) -> None:
         '''sets the speed at which you are traveling, in mph'''
         self.constants['defMphSpeed'] = speed
         self.constants['defMinPerMile'] = 60 / speed
 
+    # sets the active album to the one of their choosing
     def set_album(self, song_choice: int) -> dict:
         '''chooses a song from the "key_list" dictionary'''
         album_id = self.album_list[self.key_list[song_choice]]
@@ -91,22 +102,25 @@ class MilesToMuppets:
             "total songs": self.song_count
         }
     
-    def evaluate_album(self, print_cycle: bool = True, do_delay: bool = True) -> dict:
+    # evaluates the album chosen, with options to print if they want to
+    def evaluate_album(self, print_cycle: bool = False, do_delay: bool = True) -> dict:
         '''evaluates the album'''
 
         # imports
         from .functions import msToMinute
 
+        # initially set up numbers
         total_ms = 0
         song_amount = 0
         found_max = False
-        width = os.get_terminal_size()[0]
-        spacing = " " * width
         if print_cycle:
+            width = os.get_terminal_size()[0]
+            spacing = " " * width
             print('-----------------------------\n')
         for track in self.tracks:
             name = track['name']
             duration_ms = track['duration_ms']
+            # fancy printing, re-writing the same lines over and over
             if print_cycle:
                 sys.stdout.write("\033[F")
                 sys.stdout.write(f"{spacing}\n{spacing}")
@@ -116,6 +130,7 @@ class MilesToMuppets:
                 if do_delay:
                     time.sleep(0.15)
 
+            # break if we have met / exceeded the target time
             if total_ms >= self.ms_distance:
                 found_max = True
                 break
@@ -123,12 +138,14 @@ class MilesToMuppets:
                 total_ms += duration_ms
                 song_amount += 1
             
+        # calculate the leftover time
         ms_leftover = self.ms_distance - total_ms
         minute_leftover = round(msToMinute(ms_leftover), 2)
         if print_cycle:
             print(" ")
             print('-----------------------------')
-        return {
+        # return all of the data
+        return { 
             'finished album': found_max,
             'average speed': self.mph_speed,
             'minute(s) per mile': self.min_per_mile,
