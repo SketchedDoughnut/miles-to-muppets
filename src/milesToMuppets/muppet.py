@@ -43,33 +43,6 @@ class MilesToMuppets:
             print("Auth header:", self.AUTH_HEADER)
             print('-----------------------------')
 
-
-    ## GETTER FUNCTIONS
-    # gets all current albums
-    def get_albums(self) -> dict:
-        return self.key_list
-
-    # gets a help message
-    def get_help(self) -> None:
-        from .functions import info_help
-        info_help()
-
-    # gets the license this program is under
-    def get_license(self) -> None:
-        from .functions import info_license
-        info_license()
-
-    # prints the credits, in this case crediting me
-    def get_credits(self) -> None:
-        from .functions import info_credits
-        info_credits()
-    
-    # returns the current spotify session data in a dict
-    def get_session_data(self) -> dict:
-        return {
-            'token': self.TOKEN,
-            'auth header': self.AUTH_HEADER
-        }
     
 
 
