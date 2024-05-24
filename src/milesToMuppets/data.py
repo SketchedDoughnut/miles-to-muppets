@@ -1,5 +1,5 @@
 '''
-this file just makes it more helpful to seperate data from code, given i ever put more data in
+this file just makes it more helpful to seperate data from code, given I ever put more data in
 '''
 
 # default_mph_speed = 670_616_629

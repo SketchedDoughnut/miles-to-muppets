@@ -1,3 +1,7 @@
+'''
+This is the main file for managing the other folders, and controls all the main functions.
+'''
+
 # builtins
 import sys
 import time
@@ -11,6 +15,13 @@ from .data import data
 
 # the general class for milesToMuppets
 class MilesToMuppets:
+    '''
+    This is the main class for use for setting up and using Miles To Muppets.
+    All functions you need will be provided by this class.
+    If you want the help functions, you can access them from:
+    -> milesToMuppets.get_(help, license, credits)()
+    '''
+
     # sets up spotify API connection, gets data from that (as well as loads data from data file)
     def __init__(self, client_id: str, client_secret: str, do_print: bool = False) -> None:
         # imports
@@ -48,7 +59,10 @@ class MilesToMuppets:
 
     # sets the distance they intend to travel, in miles
     def set_mile_distance(self, distance: float) -> None:
-        '''set the distance you intend to travel, in miles'''
+        '''
+        set the distance you intend to travel, in miles
+        '''
+
         # imports
         from .functions import minuteToMs
         # calculations, conversions
@@ -58,13 +72,19 @@ class MilesToMuppets:
 
     # sets the average speed they are traveling at, in mph
     def set_speed(self, speed: float) -> None:
-        '''sets the speed at which you are traveling, in mph'''
+        '''
+        sets the speed at which you are traveling, in mph
+        '''
+
         self.constants['defMphSpeed'] = speed
         self.constants['defMinPerMile'] = 60 / speed
 
     # sets the active album to the one of their choosing
     def set_album(self, song_choice: int) -> dict:
-        '''chooses a song from the "key_list" dictionary'''
+        '''
+        chooses a song from the "key_list" dictionary
+        '''
+
         album_id = self.album_list[self.key_list[song_choice]]
         self.ALBUM_DATA = requests.get(f'https://api.spotify.com/v1/albums/{album_id}', headers=self.AUTH_HEADER).json()
         self.album_name = self.ALBUM_DATA['name']
@@ -77,7 +97,10 @@ class MilesToMuppets:
     
     # evaluates the album chosen, with options to print if they want to
     def evaluate_album(self, print_cycle: bool = False, do_delay: bool = True) -> dict:
-        '''evaluates the album'''
+        '''
+        evaluates the album
+        '''
+        
 
         # imports
         from .functions import msToMinute
