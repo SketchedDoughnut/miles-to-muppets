@@ -38,10 +38,10 @@ A calculator that converts mile distance to how many Muppets songs you can liste
 
 # Other functions
 
-  `muppet.get_help()` - Will print out some information to help you.
+- `muppet.get_help()` - Will print out some information to help you.
 
 - `muppet.get_session_data()` - will return your session token, and your auth header in a dict.
   
-  `muppet.get_license()` - Will print out what license this project is using.
+- `muppet.get_license()` - Will print out what license this project is using.
 
-  `muppet.get_credits()` - Will print out the credits for the development of this project.
+- `muppet.get_credits()` - Will print out the credits for the development of this project.
