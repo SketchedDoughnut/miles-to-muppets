@@ -38,7 +38,17 @@
 
     
     <body>
-        <script type="mpy" src="main.py"></script>
+        <py-env>
+  - numpy
+  </py-env>
+
+  <py-script>
+
+import numpy as np
+
+print(np.random.randn(10, 4))
+
+</py-script>
     </body>
 
 
