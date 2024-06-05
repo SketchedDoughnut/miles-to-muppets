@@ -27,6 +27,10 @@
             Miles to Muppets
         </title>
         <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
+
+        <!-- pyscript stuff? -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+        <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
     </head>
 
 
@@ -41,7 +45,10 @@
 
     
     <body>
-        <div class="title_text">
+        <!-- load python file -->
+        <py-script src="./py-src/main.py"></py-script>
+
+        <div class="title_text"> 
             <header>Miles to Muppets</header>
         </div>
         <div class="sub_title_text">
@@ -51,33 +58,33 @@
         <!-- get client id and secret -->
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
         <form>
+            <p>Spotify info</p>
             <label for="spotify_id">Spotify ID:</label>
-            <input type="text" name="spotify_id"><br><br>
+            <input type="text" id="spotify_id" name="spotify_id"> <br>
             <label for="spotify_id">Spotify Secret:</label>
-            <input type="text" name="spotify_secret"><br><br>
+            <input type="text" id="spotify_secret" name="spotify_secret"> <br>
 
             <!-- get album selection -->
-            <input type="radio" name="song_selection" value="0">
-            <label for="song_selection">Muppets Most Wanted</label><br>
-            <input type="radio" name="song_selection" value="1">
-            <label for="song_selection">The Muppets</label><br>
+            <p>Album selection</p>
+            <label for="song_selection">Muppets Most Wanted</label>
+            <input type="radio" id="song_selection" name="song_selection" value="0"> <br>
+            <label for="song_selection">The Muppets</label>
+            <input type="radio" id="song_selection" name="song_selection" value="1"> <br>
             
+            <!-- get time / distance -->
+            <p>Other info</p>
+            <label for="mile_distance">Mile distance:</label>
+            <input type="text" id="mile_distance" name="mile_distance"> <br>
+            <label for="mph_speed">Mph speed:</label>
+            <input type="text" id="mph_speed" name="mph_speed"> <br>
+
             <!-- submit button -->
-        <button type="submit">submit!</button>
+        <button type="submit_button" id="submit_button" name="submit_button">submit!</button>
+
+
+        <!-- <script type="py" src="main.py" config="pyscript.toml"></script> -->
         </form>
+
+        <p id="results" name="results">results: </p>
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>
