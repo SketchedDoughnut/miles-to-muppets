@@ -18,13 +18,16 @@
         <!-- Recommended meta tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <!-- PyScript CSS -->
-        <link rel="stylesheet" href="https://pyscript.net/releases/2024.5.2/core.css">
-        <!-- This script tag bootstraps PyScript -->
-        <script type="module" src="https://pyscript.net/releases/2024.5.2/core.js"></script>
+
+        <!-- linking CSS -->
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- title and favicon -->
+        <title>
+            Miles to Muppets
+        </title>
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
     </head>
-
-
 
 
 
@@ -38,17 +41,30 @@
 
     
     <body>
-        <py-env>
-  - numpy
-  </py-env>
+        <div class="title_text">
+            <header>Miles to Muppets</header>
+        </div>
+        <div class="sub_title_text">
+            <p>A calculator that converts miles to how many songs you can listen to from a muppets album</p>
+        </div>
+        
+        <!-- get client id and secret -->
+        <!-- https://www.w3schools.com/tags/tag_input.asp -->
+        <form>
+            <label for="spotify_id">Spotify ID:</label>
+            <input type="text" name="spotify_id"><br><br>
+            <label for="spotify_id">Spotify Secret:</label>
+            <input type="text" name="spotify_secret"><br><br>
 
-  <py-script>
-
-import numpy as np
-
-print(np.random.randn(10, 4))
-
-</py-script>
+            <!-- get album selection -->
+            <input type="radio" name="song_selection" value="0">
+            <label for="song_selection">Muppets Most Wanted</label><br>
+            <input type="radio" name="song_selection" value="1">
+            <label for="song_selection">The Muppets</label><br>
+            
+            <!-- submit button -->
+        <button type="submit">submit!</button>
+        </form>
     </body>
 
 

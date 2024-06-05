@@ -1,0 +1,19 @@
+/* Establish all fonts */
+@font-face {
+    font-family: title_font;
+    /* src: url(./fonts/Mawoot.ttf); */
+    src: url(./fonts/rollback/Rollback\ \(oblique\).ttf);
+  }
+
+
+/* Title text, "Miles to Muppets" */
+.title_text {
+    text-align: center;
+    /* font-family: title_font; */
+    font-weight: bold;
+    font-size: 400%;
+}
+
+.sub_title_text {
+    text-align: center;
+}
