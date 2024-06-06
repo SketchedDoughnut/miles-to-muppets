@@ -32,6 +32,8 @@
 /* input details */
 .input-box {
     background-color: rgb(179, 204, 204);
+    display: flex;
+    width: 95%;
   }
 
 .input-box:focus {
