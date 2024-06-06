@@ -68,7 +68,7 @@
 
         <!-- get client id and secret -->
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
-        <form id="data_form">
+        <form id="data_form" class="data-form">
             <h2 class="section-text">Spotify info</h2><br>
             <!-- <label for="spotify_id">Spotify ID:</label> -->
             <input type="text" id="spotify_id" placeholder="Spotify ID" class="input-box" name="spotify_id"> <br>
@@ -77,10 +77,12 @@
 
             <!-- get album selection -->
             <h2 class="section-text">Album selection</h2>
-            <label for="song_selection">Muppets Most Wanted</label>
-            <input type="radio" id="song_selection" name="song_selection" value="0"> <br>
-            <label for="song_selection">The Muppets</label>
-            <input type="radio" id="song_selection" name="song_selection" value="1"> <br>
+            <div>
+                <label for="song_selection">Muppets Most Wanted</label>
+                <input type="radio" id="song_selection" name="song_selection" value="0"> <br>
+                <label for="song_selection">The Muppets</label>
+                <input type="radio" id="song_selection" name="song_selection" value="1"> <br>
+            </div>
             
             <!-- get time / distance -->
             <h2 class="section-text">Other info</h2>

@@ -51,6 +51,16 @@ background-color: rgb(224, 235, 235);
 /* Visible divider lines */
 /* Solid border */
 hr.solid {
-    margin: 0.5vw;
+    /* margin: 0.25vw; */
     border: 0.1vw solid black;
   }
+
+
+/* Form container */
+.data-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: 50px; Adjust as needed */
+}
