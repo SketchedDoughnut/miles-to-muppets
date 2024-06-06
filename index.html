@@ -46,7 +46,12 @@
     
     <body>
         <!-- load python file -->
-        <py-script src="./py-src/main.py" config="pyscript.toml"></py-script>
+        <!-- <py-script src="./py-src/main.py" config="./pyscript.toml"></py-script> -->
+        <!-- <py-config>
+            packages = ['milesToMuppets']
+        </py-config> -->
+        <!-- <script type="py" src="./main.py" config="pyscript.toml"></script> -->
+        <script type="py" src="./main.py"></script>
 
         <div class="title_text"> 
             <header>Miles to Muppets</header>
@@ -57,7 +62,7 @@
         
         <!-- get client id and secret -->
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
-        <form>
+        <form id="data_form">
             <p>Spotify info</p>
             <label for="spotify_id">Spotify ID:</label>
             <input type="text" id="spotify_id" name="spotify_id"> <br>
@@ -79,11 +84,14 @@
             <input type="text" id="mph_speed" name="mph_speed"> <br>
 
             <!-- submit button -->
-        <button type="submit_button" id="submit_button" name="submit_button">submit!</button>
-
-
-        <!-- <script type="py" src="main.py" config="pyscript.toml"></script> -->
+            <button type="submit" py-click="run_muppet()">Submit!</button>
         </form>
+
+        <!-- <script>
+            var form = document.getElementById('data_form');
+            function handleForm(event) { event.preventDefault(); }
+            form.addEventListener('submit', handleForm);
+        </script> -->
 
         <p id="results" name="results">results: </p>
     </body>
