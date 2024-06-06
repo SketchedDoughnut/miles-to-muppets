@@ -48,15 +48,8 @@ background-color: rgb(224, 235, 235);
     background-color: rgb(70, 109, 109); 
 }
 
-/* Form formatting */
-.form-adjust {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
- /* Visible divider lines */
- /* Solid border */
+/* Visible divider lines */
+/* Solid border */
 hr.solid {
     margin: 0.5vw;
     border: 0.1vw solid black;
