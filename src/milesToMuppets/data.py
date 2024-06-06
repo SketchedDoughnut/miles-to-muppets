@@ -21,3 +21,7 @@ data = {
             "defMinPerMile": float(default_mph_speed / 60)
         }
     }
+
+default_mph_speed = 120
+print(default_mph_speed / 60)
+exit()
