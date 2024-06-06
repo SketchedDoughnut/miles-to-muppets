@@ -1,9 +1,10 @@
 # imports
 # from pyscript import document
 import milesToMuppets
+from js import document
 
 def run_muppet():
-    # get document data
+    # # get document data
     client_id_in = document.getElementById('spotify_id').innerText
     client_secret_in = document.getElementById('spotify_secret').innerText
     song_selection = document.getElementById('song_selection').innerText
@@ -30,6 +31,6 @@ def run_muppet():
     results = muppet.evaluate_album(do_delay=False)
 
     # display results
-    #results = 'uwu'
+    results = 'uwu'
     x = document.GetElementById('results')
-    x.innerText = results
+    x.innerText = f'results: {results}'
