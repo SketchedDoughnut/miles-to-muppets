@@ -1,3 +1,5 @@
 https://docs.pyscript.net/2024.5.2/user-guide/first-steps/
 https://www.educative.io/answers/how-to-import-external-libraries-and-python-script-in-pyscript
 https://www.dafont.com/mawoot.font?text=Miles+to+Muppets
+https://stackoverflow.com/questions/77034446/getting-importerror-cannot-import-name-create-proxy-from-pyodide-lib-pyth
+https://stackoverflow.com/questions/72321468/how-do-i-call-a-python-script-when-clicking-a-button-using-pyscript
