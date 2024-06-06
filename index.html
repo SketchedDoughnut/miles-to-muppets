@@ -64,14 +64,16 @@
             <p>A calculator that converts miles to how many songs you can listen to from a muppets album</p>
         </div>
         
+        <hr class="solid">
+
         <!-- get client id and secret -->
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
-        <form id="data_form">
-            <h2 class="section-text">Spotify info</h2>
-            <label for="spotify_id">Spotify ID:</label>
-            <input type="text" id="spotify_id" name="spotify_id"> <br>
-            <label for="spotify_id">Spotify Secret:</label>
-            <input type="text" id="spotify_secret" name="spotify_secret"> <br>
+        <form id="data_form" class="data-form">
+            <h2 class="section-text">Spotify info</h2><br>
+            <!-- <label for="spotify_id">Spotify ID:</label> -->
+            <input type="text" id="spotify_id" placeholder="Spotify ID" class="input-box" name="spotify_id"> <br>
+            <!-- <label for="spotify_id">Spotify Secret:</label> -->
+            <input type="text" id="spotify_secret" placeholder="Spotify Secret" class="input-box" name="spotify_secret"> <br>
 
             <!-- get album selection -->
             <h2 class="section-text">Album selection</h2>
@@ -82,10 +84,10 @@
             
             <!-- get time / distance -->
             <h2 class="section-text">Other info</h2>
-            <label for="mile_distance">Mile distance:</label>
-            <input type="text" id="mile_distance" name="mile_distance"> <br>
-            <label for="mph_speed">MPH speed:</label>
-            <input type="text" id="mph_speed" name="mph_speed"> <br>
+            <!-- <label for="mile_distance">Mile distance:</label> -->
+            <input type="text" id="mile_distance" placeholder="Mile distance" class="input-box" name="mile_distance"> <br>
+            <!-- <label for="mph_speed">MPH speed:</label> -->
+            <input type="text" id="mph_speed" placeholder="MPH speed" class="input-box" name="mph_speed"> <br>
 
             <!-- submit button -->
             <br>
@@ -97,7 +99,9 @@
         <script>
             // do not refresh page when submitting data
             var form = document.getElementById('data_form');
-            function handleForm(event) { event.preventDefault(); }
+            function handleForm(event) { 
+                event.preventDefault(); 
+            }
             form.addEventListener("submit", handleForm);
         </script>
 
@@ -112,6 +116,8 @@
             document.getElementById("data_form").addEventListener("submit", function_proxy)
         </py-script>
 
+        <hr class="solid">
+        
         <p id="results" name="results">results: </p>
     </body>
 </html>

@@ -30,13 +30,11 @@
 }
 
 /* input details */
-input[type=text] {
-    /* background-color: #3CBC8D; */
+.input-box {
     background-color: rgb(179, 204, 204);
-    /* color: white; */
   }
 
-input[type=text]:focus {
+.input-box:focus {
 background-color: rgb(224, 235, 235);
 }
 
@@ -49,3 +47,17 @@ background-color: rgb(224, 235, 235);
 .button-details:hover {
     background-color: rgb(70, 109, 109); 
 }
+
+/* Form formatting */
+.form-adjust {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ /* Visible divider lines */
+ /* Solid border */
+hr.solid {
+    margin: 0.5vw;
+    border: 0.1vw solid black;
+  }
