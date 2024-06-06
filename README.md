@@ -7,14 +7,14 @@ A calculator that converts mile distance to how many Muppets songs you can liste
     - `pip install milesToMuppets`
     - `python3 -m pip install milesToMuppets`
 
-- next, import milesToMuppets (in this case, we rename it to muppet for ease of typing) <br>
-`import milesToMuppets as muppet` <br>
+- next, import milesToMuppets<br>
+`import milesToMuppets` <br>
 
 - in the code, set up your class object, passing in your Spotify client id and client secret (which can be obtained from [Spotify for Developers](https://developer.spotify.com/) for free) <br>
-`foo = muppet.MilesToMuppets(client_id = client_id, client_secret = client_secret)` <br>
+`foo = milesToMuppets.MilesToMuppets(client_id = client_id, client_secret = client_secret)` <br>
 
     - When initializing the class, if you want it to print its session data, initialize the class as so. <br>
-`foo = muppet.MilesToMuppets(client_id = client_id, client_secret = client_secret, do_print = True)`
+`foo = milesToMuppets.MilesToMuppets(client_id = client_id, client_secret = client_secret, do_print = True)`
 
 - next, set the distance you are going, in miles. This number can be anything, but 60 is used as an example here. <br>
   `foo.set_mile_distance(60)`
