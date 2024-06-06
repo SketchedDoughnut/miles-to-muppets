@@ -32,5 +32,6 @@ def run_muppet(why_do_I_need_this_input):
     results = muppet.evaluate_album(do_delay=False)
 
     # display results
-    results = 'uwu'
-    output_buffer.value = f'results: {results}'
+    # results = 'uwu'
+    string = f'results: {results}'
+    output_buffer.innerText = string
