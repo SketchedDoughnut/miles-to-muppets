@@ -48,7 +48,7 @@
 
 
     
-    <body>
+    <body class="body-details">
         <!-- load python file -->
         <py-config>
             packages = ['milesToMuppets']
@@ -67,21 +67,21 @@
         <!-- get client id and secret -->
         <!-- https://www.w3schools.com/tags/tag_input.asp -->
         <form id="data_form">
-            <p>Spotify info</p>
+            <h2 class="section-text">Spotify info</h2>
             <label for="spotify_id">Spotify ID:</label>
             <input type="text" id="spotify_id" name="spotify_id"> <br>
             <label for="spotify_id">Spotify Secret:</label>
             <input type="text" id="spotify_secret" name="spotify_secret"> <br>
 
             <!-- get album selection -->
-            <p>Album selection</p>
+            <h2 class="section-text">Album selection</h2>
             <label for="song_selection">Muppets Most Wanted</label>
             <input type="radio" id="song_selection" name="song_selection" value="0"> <br>
             <label for="song_selection">The Muppets</label>
             <input type="radio" id="song_selection" name="song_selection" value="1"> <br>
             
             <!-- get time / distance -->
-            <p>Other info</p>
+            <h2 class="section-text">Other info</h2>
             <label for="mile_distance">Mile distance:</label>
             <input type="text" id="mile_distance" name="mile_distance"> <br>
             <label for="mph_speed">MPH speed:</label>
@@ -90,7 +90,7 @@
             <!-- submit button -->
             <br>
             <!-- py-onClick="run_muppet()" -->
-            <button type="submit" id="submit_form">Submit!</button>
+            <button type="submit" id="submit_form" class="button-details"><span class="button-text">Submit!</span></button>
 
         </form>
 

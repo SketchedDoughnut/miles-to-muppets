@@ -6,6 +6,16 @@
   }
 
 
+/* Body details */
+.body-details {
+    background-color:  rgb(102, 153, 153);
+}
+
+/* Section text */
+.section-text {
+    font-weight: bolder;
+}
+
 /* Title text, "Miles to Muppets" */
 .title_text {
     text-align: center;
@@ -14,6 +24,28 @@
     font-size: 400%;
 }
 
+/* The text below the title */
 .sub_title_text {
     text-align: center;
+}
+
+/* input details */
+input[type=text] {
+    /* background-color: #3CBC8D; */
+    background-color: rgb(179, 204, 204);
+    /* color: white; */
+  }
+
+input[type=text]:focus {
+background-color: rgb(224, 235, 235);
+}
+
+/* Button details */
+.button-details[type=submit] {
+    background-color: rgb(50, 78, 78);
+}
+
+.button-text {
+    /* color: white; */
+    color: rgb(208, 225, 225);
 }

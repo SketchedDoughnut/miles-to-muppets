@@ -1,0 +1,3 @@
+Main colors:
+- https://www.w3schools.com/colors/colors_picker.asp
+    - 50% is: rgb(102, 153, 153)
