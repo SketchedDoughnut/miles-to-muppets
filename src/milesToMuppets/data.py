@@ -13,9 +13,11 @@ data = {
         "key_list": { # a key_list for peoples selections, just translates nums into song names for above
             0: "Muppets Most Wanted",
             1: "The Muppets"
+            # also add "muppets electric mayhem"
         },
         "constants": { # constants used for calculations
             "defMphSpeed": float(default_mph_speed),
-            "defMinPerMile": float(60 / default_mph_speed)
+            # "defMinPerMile": float(60 / default_mph_speed)
+            "defMinPerMile": float(default_mph_speed / 60)
         }
     }
