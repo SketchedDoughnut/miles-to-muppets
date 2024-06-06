@@ -28,30 +28,26 @@ class MilesToMuppets:
         from .functions import get_token, get_auth_header
 
         # set up internal 
-        DATA = data
-        CONSTANTS = DATA['constants']
-        KEY_LIST = DATA['key_list']
-        ALBUM_LIST = DATA['songs']
-        self.data = DATA
-        self.constants = CONSTANTS
-        self.key_list = KEY_LIST
-        self.album_list = ALBUM_LIST
+        self.data = self.data
+        self.constants = self.data['constants']
+        self.key_list = self.data['key_list']
+        self.album_list = self.data['albums']
 
 
         # get token, auth_header
-        self.TOKEN = get_token(client_id, client_secret)
-        self.AUTH_HEADER = get_auth_header(self.TOKEN)
+        self.token = get_token(client_id, client_secret)
+        self.auth_header = get_auth_header(self.token)
 
         # set up numbers for calculations later
-        self.mph_speed = CONSTANTS['defMphSpeed']
-        self.min_per_mile = CONSTANTS['defMinPerMile']
+        self.mph_speed = self.constants['defMphSpeed']
+        self.min_per_mile = self.constants['defMinPerMile']
 
         # print the session data, if requested
         if do_print == True:
             print('-----------------------------')
             print("SESSION DATA:")
-            print("Token:", self.TOKEN)
-            print("Auth header:", self.AUTH_HEADER)
+            print("Token:", self.token)
+            print("Auth header:", self.auth_header)
             print('-----------------------------')
 
     
@@ -76,8 +72,14 @@ class MilesToMuppets:
         sets the speed at which you are traveling, in mph
         '''
 
+        # imports
+        from .functions import minuteToMs
         self.constants['defMphSpeed'] = speed
-        self.constants['defMinPerMile'] = 60 / speed
+        self.constants['defMinPerMile'] = speed / 60
+        self.mph_speed = self.constants['defMphSpeed']
+        self.min_per_mile = self.constants['defMinPerMile']
+        self.minute_distance = self.min_per_mile * self.mile_distance
+        self.ms_distance = minuteToMs(self.minute_distance)
 
     # sets the active album to the one of their choosing
     def set_album(self, song_choice: int) -> dict:
@@ -86,10 +88,10 @@ class MilesToMuppets:
         '''
 
         album_id = self.album_list[self.key_list[song_choice]]
-        self.ALBUM_DATA = requests.get(f'https://api.spotify.com/v1/albums/{album_id}', headers=self.AUTH_HEADER).json()
-        self.album_name = self.ALBUM_DATA['name']
-        self.song_count = self.ALBUM_DATA['total_tracks']
-        self.tracks = self.ALBUM_DATA['tracks']['items']
+        self.album_data = requests.get(f'https://api.spotify.com/v1/albums/{album_id}', headers=self.auth_header).json()
+        self.album_name = self.album_data['name']
+        self.song_count = self.album_data['total_tracks']
+        self.tracks = self.album_data['tracks']['items']
         return {
             "album name": self.album_name,
             "total songs": self.song_count
@@ -130,9 +132,8 @@ class MilesToMuppets:
             if total_ms >= self.ms_distance:
                 found_max = True
                 break
-            else:
-                total_ms += duration_ms
-                song_amount += 1
+            total_ms += duration_ms
+            song_amount += 1
             
         # calculate the leftover time
         ms_leftover = self.ms_distance - total_ms
@@ -142,10 +143,17 @@ class MilesToMuppets:
             print('-----------------------------')
         # return all of the data
         return { 
-            'finished album': found_max,
+
+            # backwards compatible dictionary data
             'average speed': self.mph_speed,
             'minute(s) per mile': self.min_per_mile,
             'songs listened': song_amount,
+
+            # active dictionary data
+            'finished album': found_max,
+            'avg. mph speed': self.mph_speed,
+            'avg. minute(s) per mile': self.min_per_mile,
+            'songs listened to': song_amount,
             'mile distance': self.mile_distance,
             'minute distance': self.minute_distance,
             'ms distance': self.ms_distance,

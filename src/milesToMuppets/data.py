@@ -5,7 +5,7 @@ this file just makes it more helpful to seperate data from code, given I ever pu
 # default_mph_speed = 670_616_629
 default_mph_speed = 60.0
 data = {
-        "songs": { # song name, spotify URI
+        "albums": { # song name, spotify URI
             "Muppets Most Wanted": "3Z1dw9cLeFAyhvkXdn6P5G",
             "The Muppets": "0mahHDhPnuYMbo3sXOEW50"
         },
@@ -21,7 +21,3 @@ data = {
             "defMinPerMile": float(default_mph_speed / 60)
         }
     }
-
-default_mph_speed = 120
-print(default_mph_speed / 60)
-exit()
