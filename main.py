@@ -1,30 +1,35 @@
-# mtm
+# imports
+# from pyscript import document
 import milesToMuppets
 
-# pyscript config
-from pyscript import document
-
-# grab assets from document
 def run_muppet():
-    # global client_id, client_secret
-    # global song_selection
-    # global mile_distance, mph_speed
-    # client_id = document.getElementById('spotify_id').innerText
-    # client_secret = document.getElementById('spotify_secret').innerText
-    # song_selection = int(document.getElementById('song_selection').innerText)
-    # mile_distance = int(document.GetElementById('mile_distance').innerText)
-    # mph_speed = int(document.GetElementById('mph_speed').innerText)
+    # get document data
+    client_id_in = document.getElementById('spotify_id').innerText
+    client_secret_in = document.getElementById('spotify_secret').innerText
+    song_selection = document.getElementById('song_selection').innerText
+    mile_distance = document.GetElementById('mile_distance').innerText
+    mph_speed = document.GetElementById('mph_speed').innerText
 
+    # convert necessary to int
+    song_selection = int(song_selection)
+    mile_distance = float(mile_distance)
+    mph_speed = float(mph_speed)
 
-    # muppet = milesToMuppets.MilesToMuppets(
-    #     client_id=client_id, 
-    #     client_secret=client_secret
-    # )
+    # set up class object
+    muppet = milesToMuppets.MilesToMuppets(
+        client_id=client_id_in, 
+        client_secret=client_secret_in
+    )
 
-    # muppet.set_album(song_selection)
-    # muppet.set_mile_distance(mile_distance)
-    # muppet.set_speed(mph_speed)
-    # results = muppet.evaluate_album(do_delay=False)
-    results = 'uwu'
+    # config
+    muppet.set_album(song_selection)
+    muppet.set_mile_distance(mile_distance)
+    muppet.set_speed(mph_speed)
+
+    # valuate album
+    results = muppet.evaluate_album(do_delay=False)
+
+    # display results
+    #results = 'uwu'
     x = document.GetElementById('results')
     x.innerText = results

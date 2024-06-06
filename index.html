@@ -29,8 +29,10 @@
         <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
 
         <!-- pyscript stuff? -->
-        <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
-        <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+        <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" /> -->
+        <!-- <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script> -->
+        <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC1/core.css">
+        <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script>
     </head>
 
 
@@ -46,12 +48,12 @@
     
     <body>
         <!-- load python file -->
-        <!-- <py-script src="./py-src/main.py" config="./pyscript.toml"></py-script> -->
-        <!-- <py-config>
+        <py-config>
             packages = ['milesToMuppets']
-        </py-config> -->
+        </py-config>
         <!-- <script type="py" src="./main.py" config="pyscript.toml"></script> -->
-        <script type="py" src="./main.py"></script>
+        <!-- <script type="py" src="./main.py"></script> -->
+        <py-script src="./main.py"></py-script>
 
         <div class="title_text"> 
             <header>Miles to Muppets</header>
@@ -84,14 +86,15 @@
             <input type="text" id="mph_speed" name="mph_speed"> <br>
 
             <!-- submit button -->
-            <button type="submit" py-click="run_muppet()">Submit!</button>
+             <br>
+            <button type="submit" id="submit_form" py-click="run_muppet()">Submit!</button>
         </form>
 
-        <!-- <script>
+        <script>
             var form = document.getElementById('data_form');
             function handleForm(event) { event.preventDefault(); }
-            form.addEventListener('submit', handleForm);
-        </script> -->
+            form.addEventListener("submit", handleForm);
+        </script>
 
         <p id="results" name="results">results: </p>
     </body>
