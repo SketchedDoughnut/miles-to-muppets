@@ -49,7 +49,7 @@ background-color: rgb(224, 235, 235);
 }
 
 /* Visible divider lines */
-/* Solid border */
+/* https://www.w3schools.com/howto/howto_css_dividers.asp */
 hr.solid {
     /* margin: 0.25vw; */
     border: 0.1vw solid black;
