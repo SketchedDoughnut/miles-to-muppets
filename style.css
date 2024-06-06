@@ -41,11 +41,11 @@ background-color: rgb(224, 235, 235);
 }
 
 /* Button details */
-.button-details[type=submit] {
+.button-details {
     background-color: rgb(50, 78, 78);
+    color: white;
 }
 
-.button-text {
-    /* color: white; */
-    color: rgb(208, 225, 225);
+.button-details:hover {
+    background-color: rgb(70, 109, 109); 
 }

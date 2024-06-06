@@ -90,7 +90,7 @@
             <!-- submit button -->
             <br>
             <!-- py-onClick="run_muppet()" -->
-            <button type="submit" id="submit_form" class="button-details"><span class="button-text">Submit!</span></button>
+            <button type="submit" id="submit_form" class="button-details">Submit!</button>
 
         </form>
 
@@ -105,9 +105,6 @@
             # <!-- set up the code to run function on button press -->
             from pyodide.ffi import create_proxy
             from js import document
-
-            def run_code():
-                run_muppet()
             
             # <!-- add event listener, proxy -->
             function_proxy = create_proxy(run_muppet)
