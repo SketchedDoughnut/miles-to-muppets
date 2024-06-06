@@ -29,7 +29,7 @@
         <link rel="icon" type="image/x-icon" href="./assets/favicon.jpeg">
 
         <!-- pyscript stuff? -->
-        <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" /> -->
+        <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css"/> -->
         <!-- <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script> -->
         <!-- <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC1/core.css"> -->
         <!-- <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC1/core.js"></script> -->
@@ -89,15 +89,31 @@
 
             <!-- submit button -->
             <br>
-            <button type="submit" id="submit_form" py-onClick="run_muppet()">Submit!</button>
+            <!-- py-onClick="run_muppet()" -->
+            <button type="submit" id="submit_form">Submit!</button>
 
         </form>
 
         <script>
+            // do not refresh page when submitting data
             var form = document.getElementById('data_form');
             function handleForm(event) { event.preventDefault(); }
             form.addEventListener("submit", handleForm);
         </script>
+
+        <py-script>
+            # <!-- set up the code to run function on button press -->
+            from pyodide.ffi import create_proxy
+            from js import document
+
+            def run_code():
+                run_muppet()
+            
+            # <!-- add event listener, proxy -->
+            function_proxy = create_proxy(run_muppet)
+
+            document.getElementById("data_form").addEventListener("submit", function_proxy)
+        </py-script>
 
         <p id="results" name="results">results: </p>
     </body>

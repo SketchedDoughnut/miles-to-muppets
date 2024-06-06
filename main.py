@@ -1,15 +1,16 @@
 # imports
 # from pyscript import document
 import milesToMuppets
-from js import document
+import js 
 
-def run_muppet():
-    # # get document data
-    client_id_in = document.getElementById('spotify_id').innerText
-    client_secret_in = document.getElementById('spotify_secret').innerText
-    song_selection = document.getElementById('song_selection').innerText
-    mile_distance = document.GetElementById('mile_distance').innerText
-    mph_speed = document.GetElementById('mph_speed').innerText
+def run_muppet(why_do_I_need_this_input):
+    # get document data
+    client_id_in = js.document.getElementById('spotify_id').value
+    client_secret_in = js.document.getElementById('spotify_secret').value
+    song_selection = js.document.getElementById('song_selection').value
+    mile_distance = js.document.getElementById('mile_distance').value
+    mph_speed = js.document.getElementById('mph_speed').value
+    output_buffer = js.document.getElementById('results')
 
     # convert necessary to int
     song_selection = int(song_selection)
@@ -32,5 +33,4 @@ def run_muppet():
 
     # display results
     results = 'uwu'
-    x = document.GetElementById('results')
-    x.innerText = f'results: {results}'
+    output_buffer.value = f'results: {results}'
