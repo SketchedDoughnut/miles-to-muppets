@@ -10,9 +10,6 @@ import os
 # installed
 import requests
 
-# files
-from .data import data
-
 # the general class for milesToMuppets
 class MilesToMuppets:
     '''
@@ -26,9 +23,10 @@ class MilesToMuppets:
     def __init__(self, client_id: str, client_secret: str, do_print: bool = False) -> None:
         # imports
         from .functions import get_token, get_auth_header
+        from .data import data
 
         # set up internal 
-        self.data = self.data
+        self.data = data
         self.constants = self.data['constants']
         self.key_list = self.data['key_list']
         self.album_list = self.data['albums']
@@ -97,6 +95,10 @@ class MilesToMuppets:
             "total songs": self.song_count
         }
     
+    # make sure everything is updated before running
+    def _initialize(self):
+        pass
+
     # evaluates the album chosen, with options to print if they want to
     def evaluate_album(self, print_cycle: bool = False, do_delay: bool = True) -> dict:
         '''
@@ -145,9 +147,9 @@ class MilesToMuppets:
         return { 
 
             # backwards compatible dictionary data
-            'average speed': self.mph_speed,
-            'minute(s) per mile': self.min_per_mile,
-            'songs listened': song_amount,
+            # 'average speed': self.mph_speed,
+            # 'minute(s) per mile': self.min_per_mile,
+            # 'songs listened': song_amount,
 
             # active dictionary data
             'finished album': found_max,
@@ -157,5 +159,6 @@ class MilesToMuppets:
             'mile distance': self.mile_distance,
             'minute distance': self.minute_distance,
             'ms distance': self.ms_distance,
+            'counted ms distance': total_ms,
             'leftover minute(s)':  minute_leftover
         }

@@ -22,3 +22,5 @@ from .muppet import *
 
 # extending getter functions, helper
 from .helpers import *
+
+version = "0.0.17"

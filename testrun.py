@@ -1,4 +1,5 @@
-import milesToMuppets as muppet
+# import milesToMuppets as muppet
+from src import milesToMuppets as muppet
 
 foo = muppet.MilesToMuppets(
     client_id='x',
@@ -7,6 +8,6 @@ foo = muppet.MilesToMuppets(
 
 foo.set_mile_distance(60)
 foo.set_speed(30)
-albums = foo.get_albums()
 foo.set_album(0)
-foo.evaluate_album(print_cycle=True)
+results = foo.evaluate_album(print_cycle=True)
+print(results)

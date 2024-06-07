@@ -51,53 +51,53 @@ def get_auth_header(token: str) -> dict: # essentially just sets up a formatted 
 
 ## UNIT CONVERSIONS
 # converts hours to millisecond
-def hourToMs(num: float) -> float:
+def hourToMs(hour: float) -> float:
     '''
     converts hours to milliseconds
     '''
 
     # hour to min
-    output = num * 60
+    minute = hour * 60
     # min to second
-    output = output * 60
+    second = minute * 60
     # second to ms
-    output = output * 1000
-    return output
+    ms = second * 1000
+    return ms
 
 # converts milliseconds to hour
-def msToHour(num: float) -> float:
+def msToHour(ms: float) -> float:
     '''
     converts milliseconds to hours
     '''
 
     # ms to second
-    output = num / 1000
+    second = ms / 1000
     # second to minute
-    output = output / 60
+    minute = second / 60
     # minute to hour
-    output = output / 60
-    return output
+    hour = minute / 60
+    return hour
 
 # converts minutes to milliseconds
-def minuteToMs(num: float) -> float:
+def minuteToMs(minute: float) -> float:
     '''
     converts minutes to milliseconds
     '''
 
     # minute to second
-    output = num * 60
+    second = minute * 60
     # second to ms
-    output = output * 1000
-    return output
+    ms = second * 1000
+    return ms
 
 # converts milliseconds to minutes
-def msToMinute(num: float) -> float:
+def msToMinute(ms: float) -> float:
     '''
     converts milliseconds to minutes
     '''
 
     # ms to second
-    output = num / 1000
+    second = ms / 1000
     # second to minute
-    output = output / 60
-    return output
+    minute = second / 60
+    return minute
