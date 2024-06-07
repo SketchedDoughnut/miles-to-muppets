@@ -1,21 +1,8 @@
 <!doctype html>
 <html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!--     Header stuffs  -->
     <head>
-        <!-- Recommended meta tags -->
+        <!--  IDEK what these are -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -55,21 +42,19 @@
         </py-config>
 
         <!-- This is just comedic -->
-         <!-- https://stackoverflow.com/questions/13350663/greyed-out-waiting-page-in-javascript -->
-        <!-- <div id="blackout" style="background-image:url(./assets/favicon.jpeg)"; display: none;>  -->
+        <!-- https://stackoverflow.com/questions/13350663/greyed-out-waiting-page-in-javascript -->
+        <!-- <div id="blackout" style="background-image:url(./assets/favicon.jpeg)"; display: none;></div> -->
 
-        </div>
-
+        <!-- Initial pyscript to block out screen -->
         <!-- <py-script>
             from js import document
-
             document.getElementById('blackout').style.display = 'block';
         </py-script> -->
 
-        <!-- <script type="py" src="./main.py" config="pyscript.toml"></script> -->
+        <!-- Loading python file with muppets code -->
         <script type="py" src="./main.py"></script>
-        <!-- <py-script src="./main.py"></py-script> -->
 
+        <!-- Display loading text, title, version number, description -->
         <div class="loading" id="loading">
             <h1>Loading...</h1>
         </div>
@@ -81,7 +66,8 @@
             <!-- <p>A calculator that converts miles to how many songs you can listen to from a muppets album</p> -->
             <p>A calculator that converts distance in miles to how many songs you can listen to from a selected muppets album~!</p>
         </div>
-        
+
+        <!-- Solid divider line -->
         <hr class="solid">
 
         <!-- get client id and secret -->
@@ -113,18 +99,16 @@
             <br>
             <!-- py-onClick="run_muppet()" -->
             <button type="submit" id="submit_form" class="button-details">Submit!</button>
-
         </form>
 
+        <!-- Set up event listener for button submit, prevent form from refreshing page -->
         <script>
-            // do not refresh page when submitting data
             var form = document.getElementById('data_form');
-            function handleForm(event) { 
-                event.preventDefault(); 
-            }
+            function handleForm(event) { event.preventDefault(); }
             form.addEventListener("submit", handleForm);
         </script>
 
+        <!-- Load version number, remove loading text, call on muppet function when submit is pressed -->
         <py-script>
             # <!-- set up the code to run function on button press -->
             from pyodide.ffi import create_proxy
@@ -146,14 +130,19 @@
             document.getElementById("data_form").addEventListener("submit", function_proxy)
         </py-script>
 
+        <!-- Solid divider line -->
         <hr class="solid">
-        
+
+        <!-- Temporary results buffer -->
         <p id="results" name="results">results: </p>
     </body>
 
+    <!-- Footer with some minor credits -->
     <footer class="footer">
         <p>Note: This website is built for the mobile experience.</p>
         <p>Access the github <a target="_blank" href="https://github.com/SketchedDoughnut/miles-to-muppets">here!</a></p>
+        <p>Made by SketchedDoughnut</p>
+        <p>MilesToMuppets package by SketchedDoughnut</p>
     </footer>
 </html>
  
