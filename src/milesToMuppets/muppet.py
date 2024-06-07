@@ -114,8 +114,7 @@ class MilesToMuppets:
         
 
         # imports
-        from .functions import msToMinute
-
+        from .functions import msToMinute, minuteToHour
         # initialize
         self._initialize()
         
@@ -156,6 +155,17 @@ class MilesToMuppets:
         ms_leftover = self.ms_distance - total_ms
         minute_leftover = round(msToMinute(ms_leftover), 2)
 
+        mile_leftover_minute = msToMinute(ms_leftover)
+        mile_leftover_mpm = self.mph_speed / 60
+        mile_leftover_hour = minuteToHour(mile_leftover_minute)
+        # self.mph_speed = x / mile_leftover_hour
+        # multiply both sides by mile_leftover_hour
+        # gets you distance in miles
+        mile_leftover_distance = self.mph_speed * mile_leftover_hour
+        # round
+        mile_leftover_distance = round(mile_leftover_distance, 2)
+
+
         '''
         To convert mph to distance in ms, we:
         - get minutes per mile (mph / 60)
@@ -163,8 +173,12 @@ class MilesToMuppets:
         - get ms distance (convert minute to ms)
 
         To convert distance in ms to mph, we:
-        - get minute distance (convert ms to minute)
-        - get minutes per mile (divide minute distance by how many miles to travel)
+        - use v = d / t?
+            - v: mph
+            - d: ?
+            - t: leftover time
+            ex: 30 = x / 8.35
+            SO multiply mph by leftover time and we get how much time is leftover 
         '''
         
 
@@ -181,12 +195,14 @@ class MilesToMuppets:
 
             # active dictionary data
             'finished album': exceeded_album,
+            'finished trip': found_within_loop,
             'avg. mph speed': self.mph_speed,
-            'avg. minute(s) per mile': self.min_per_mile,
+            'avg. minutes per mile': self.min_per_mile,
             'songs listened to': song_amount,
             'mile distance': self.mile_distance,
             'minute distance': self.minute_distance,
             'ms distance': self.ms_distance,
             'counted ms distance': total_ms,
-            'leftover minute(s)':  minute_leftover
+            'leftover minutes':  minute_leftover,
+            'leftover miles': mile_leftover_distance 
         }

@@ -101,3 +101,13 @@ def msToMinute(ms: float) -> float:
     # second to minute
     minute = second / 60
     return minute
+
+# converts minutes to hours
+def minuteToHour(minute: float) -> float:
+    '''
+    converts minutes to hours
+    '''
+
+    # minute to hour
+    hour = minute / 60
+    return hour
