@@ -53,5 +53,5 @@ def run_muppet(why_do_I_need_this_input):
     for key, prefix in zip(results, template):
         current_element = js.document.getElementById(key)
         results_val = results[key]
-        output_string = f"{prefix}: {results_val}"
+        output_string = f"<b>{prefix}</b>: {results_val}"
         current_element.innerText = output_string

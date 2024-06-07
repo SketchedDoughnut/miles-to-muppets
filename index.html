@@ -101,41 +101,6 @@
             <button type="submit" id="submit_form" class="button-details">Submit!</button>
         </form>
 
-        <!-- Set up event listener for button submit, prevent form from refreshing page -->
-        <script>
-            var form = document.getElementById('data_form');
-            function handleForm(event) { event.preventDefault(); }
-            form.addEventListener("submit", handleForm);
-        </script>
-
-        <!-- Load version number, remove loading text, call on muppet function when submit is pressed -->
-        <py-script>
-            # <!-- set up the code to run function on button press -->
-            from pyodide.ffi import create_proxy
-            from js import document
-            import milesToMuppets
-            
-            # <!-- Remove loading text -->
-            document.getElementById("loading").remove()
-            
-            # <!-- Get rid of blackout -->
-            # document.getElementById('blackout').style.display = 'none';
-
-            # <!-- Edit the text below "Miles to Muppets" to include the version number -->
-            document.getElementById("version_num").innerText = f"v{milesToMuppets.version}"
-
-            # function for processing before calling muppet
-            def process_click(why):
-                results = document.getElementById("results")
-                results.innerText = "Results: Loading..."
-                run_muppet(why)
-
-            # <!-- add event listener, proxy -->
-            function_proxy = create_proxy(process_click)
-
-            document.getElementById("data_form").addEventListener("submit", function_proxy)
-        </py-script>
-
         <!-- Solid divider line -->
         <hr class="solid">
 
@@ -154,6 +119,40 @@
             <p id="leftover minutes">leftover minutes</p>
             <p id="leftover miles">leftover miles</p>
          </div>
+
+         <!-- Set up event listener for button submit, prevent form from refreshing page -->
+        <script>
+            var form = document.getElementById('data_form');
+            function handleForm(event) { event.preventDefault(); }
+            form.addEventListener("submit", handleForm);
+        </script>
+
+        <!-- Load version number, remove loading text, call on muppet function when submit is pressed -->
+        <py-script>
+            # <!-- set up the code to run function on button press -->
+            from pyodide.ffi import create_proxy
+            from js import document
+            import milesToMuppets
+            
+            # <!-- Get rid of blackout -->
+            # document.getElementById('blackout').style.display = 'none';
+
+            # <!-- Edit the text below "Miles to Muppets" to include the version number -->
+            document.getElementById("version_num").innerText = f"v{milesToMuppets.version}"
+
+            # <!-- function for processing before calling muppet -->
+            def process_click(why):
+                results = document.getElementById("results")
+                results.innerText = "Results: Loading..."
+                run_muppet(why)
+
+            # <!-- add event listener, proxy -->
+            function_proxy = create_proxy(process_click)
+            document.getElementById("data_form").addEventListener("submit", function_proxy)
+
+            # <!-- Remove loading text -->
+            document.getElementById("loading").remove()
+        </py-script>
     </body>
 
     <!-- Footer with some minor credits -->

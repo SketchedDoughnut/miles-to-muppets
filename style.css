@@ -8,6 +8,7 @@
 /* Loading details */
 .loading {
     text-align: center;
+    color: red;
 }
 
 /* Some blackout stuff? */
