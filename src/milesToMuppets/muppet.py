@@ -97,7 +97,14 @@ class MilesToMuppets:
     
     # make sure everything is updated before running
     def _initialize(self):
-        pass
+        from .functions import minuteToMs
+        self.constants = self.data['constants']
+        self.key_list = self.data['key_list']
+        self.album_list = self.data['albums']
+        self.mph_speed = self.constants['defMphSpeed']
+        self.min_per_mile = self.constants['defMinPerMile']
+        self.minute_distance = self.min_per_mile * self.mile_distance
+        self.ms_distance = minuteToMs(self.minute_distance)
 
     # evaluates the album chosen, with options to print if they want to
     def evaluate_album(self, print_cycle: bool = False, do_delay: bool = True) -> dict:
@@ -109,6 +116,9 @@ class MilesToMuppets:
         # imports
         from .functions import msToMinute
 
+        # initialize
+        self._initialize()
+        
         # initially set up numbers
         total_ms = 0
         song_amount = 0
