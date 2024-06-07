@@ -122,7 +122,8 @@ class MilesToMuppets:
         # initially set up numbers
         total_ms = 0
         song_amount = 0
-        found_max = False
+        exceeded_album = False
+        found_within_loop = False
         if print_cycle:
             width = os.get_terminal_size()[0]
             spacing = " " * width
@@ -142,14 +143,31 @@ class MilesToMuppets:
 
             # break if we have met / exceeded the target time
             if total_ms >= self.ms_distance:
-                found_max = True
+                found_within_loop = True
                 break
             total_ms += duration_ms
             song_amount += 1
-            
+        
+        # if it was not found within album, means we ran through full loop without meeting target
+        if found_within_loop == False:
+            exceeded_album = True
+
         # calculate the leftover time
         ms_leftover = self.ms_distance - total_ms
         minute_leftover = round(msToMinute(ms_leftover), 2)
+
+        '''
+        To convert mph to distance in ms, we:
+        - get minutes per mile (mph / 60)
+        - get minute distance (minutes per mile * mile distance)
+        - get ms distance (convert minute to ms)
+
+        To convert distance in ms to mph, we:
+        - get minute distance (convert ms to minute)
+        - get minutes per mile (divide minute distance by how many miles to travel)
+        '''
+        
+
         if print_cycle:
             print(" ")
             print('-----------------------------')
@@ -162,7 +180,7 @@ class MilesToMuppets:
             # 'songs listened': song_amount,
 
             # active dictionary data
-            'finished album': found_max,
+            'finished album': exceeded_album,
             'avg. mph speed': self.mph_speed,
             'avg. minute(s) per mile': self.min_per_mile,
             'songs listened to': song_amount,
