@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/21939713/hide-api-key-for-a-github-page
+https://stackoverflow.com/questions/45158841/how-does-gitignore-work
