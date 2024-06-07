@@ -35,3 +35,22 @@ def run_muppet(why_do_I_need_this_input):
     # results = 'uwu'
     string = f'results: {results}'
     output_buffer.innerText = string
+
+    template = [
+        "Finished album",
+        "Finished trip",
+        "Average speed",
+        "Average minutes per mile",
+        "Songs listened to",
+        "Miles distance",
+        "Minutes distance",
+        "Millisecond distance",
+        "Counted ms distance",
+        "Leftover minutes",
+        "Leftover miles"
+    ]
+    for key, prefix in zip(results, template):
+        current_element = js.document.getElementById(key)
+        results_val = results[key]
+        output_string = f"{prefix}: {results_val}"
+        current_element.innerText = output_string

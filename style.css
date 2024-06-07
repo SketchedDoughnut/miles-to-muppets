@@ -29,6 +29,23 @@
     font-weight: bolder;
 }
 
+/* Text details for buffer title */
+.results-title {
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Content of the results class */
+.results-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Title text, "Miles to Muppets" */
 .title_text {
     text-align: center;
