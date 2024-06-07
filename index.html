@@ -53,15 +53,33 @@
         <py-config>
             packages = ['milesToMuppets']
         </py-config>
+
+        <!-- This is just comedic -->
+         <!-- https://stackoverflow.com/questions/13350663/greyed-out-waiting-page-in-javascript -->
+        <!-- <div id="blackout" style="background-image:url(./assets/favicon.jpeg)"; display: none;>  -->
+
+        </div>
+
+        <!-- <py-script>
+            from js import document
+
+            document.getElementById('blackout').style.display = 'block';
+        </py-script> -->
+
         <!-- <script type="py" src="./main.py" config="pyscript.toml"></script> -->
         <script type="py" src="./main.py"></script>
         <!-- <py-script src="./main.py"></py-script> -->
 
+        <div class="loading" id="loading">
+            <h1>Loading...</h1>
+        </div>
         <div class="title_text"> 
             <header>Miles to Muppets</header>
         </div>
         <div class="sub_title_text">
-            <p>A calculator that converts miles to how many songs you can listen to from a muppets album</p>
+            <p id="version_num" style="font-weight: bold;">Version number loading...</p>
+            <!-- <p>A calculator that converts miles to how many songs you can listen to from a muppets album</p> -->
+            <p>A calculator that converts distance in miles to how many songs you can listen to from a selected muppets album~!</p>
         </div>
         
         <hr class="solid">
@@ -111,7 +129,17 @@
             # <!-- set up the code to run function on button press -->
             from pyodide.ffi import create_proxy
             from js import document
+            import milesToMuppets
             
+            # <!-- Remove loading text -->
+            document.getElementById("loading").remove()
+            
+            # <!-- Get rid of blackout -->
+            # document.getElementById('blackout').style.display = 'none';
+
+            # <!-- Edit the text below "Miles to Muppets" to include the version number -->
+            document.getElementById("version_num").innerText = f"v{milesToMuppets.version}"
+
             # <!-- add event listener, proxy -->
             function_proxy = create_proxy(run_muppet)
 
@@ -122,5 +150,10 @@
         
         <p id="results" name="results">results: </p>
     </body>
+
+    <footer class="footer">
+        <p>Note: This website is built for the mobile experience.</p>
+        <p>Access the github <a href="https://github.com/SketchedDoughnut/miles-to-muppets">here!</a></p>
+    </footer>
 </html>
  
