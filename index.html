@@ -124,8 +124,14 @@
             # <!-- Edit the text below "Miles to Muppets" to include the version number -->
             document.getElementById("version_num").innerText = f"v{milesToMuppets.version}"
 
+            # function for processing before calling muppet
+            def process_click(why):
+                results = document.getElementById("results")
+                results.innerText = "Results: Loading..."
+                run_muppet(why)
+
             # <!-- add event listener, proxy -->
-            function_proxy = create_proxy(run_muppet)
+            function_proxy = create_proxy(process_click)
 
             document.getElementById("data_form").addEventListener("submit", function_proxy)
         </py-script>
@@ -139,7 +145,7 @@
             <p id="finished album">finished album</p>
             <p id="finished trip">finished trip</p>
             <p id="avg. mph speed">avg. mph speed</p>
-            <p id="avg. minutes per miles">avg. minutes per miles</p>
+            <p id="avg. minutes per mile">avg. minutes per miles</p>
             <p id="songs listened to">songs listened to</p>
             <p id="mile distance">mile distance</p>
             <p id="minute distance">minute distance</p>

@@ -33,7 +33,8 @@ def run_muppet(why_do_I_need_this_input):
 
     # display results
     # results = 'uwu'
-    string = f'results: {results}'
+    # string = f'results: {results}'
+    string = 'Results'
     output_buffer.innerText = string
 
     template = [
