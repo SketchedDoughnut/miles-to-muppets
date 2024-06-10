@@ -3,6 +3,28 @@
 import milesToMuppets
 import js 
 
+def hide_results():
+    elem_list = [
+        "finished album",
+        "finished trip",
+        "avg. mph speed",
+        "avg. minutes per mile",
+        "songs listened to",
+        "mile distance",
+        "minute distance",
+        "ms distance",
+        "counted ms distance",
+        "leftover minutes",
+        "leftover miles"
+    ]
+
+    # second = js.document.getElementById("results-contents")
+    # second.style.display = "block"
+    # for thing in elem_list:
+    #     active = js.document.getElementById(thing)
+        # active.remove()
+        # active.style.display = "hide"
+
 def run_muppet(why_do_I_need_this_input):
     # get document data
     client_id_in = js.document.getElementById('spotify_id').value
@@ -55,3 +77,6 @@ def run_muppet(why_do_I_need_this_input):
         results_val = results[key]
         output_string = f"<b>{prefix}</b>: {results_val}"
         current_element.innerText = output_string
+
+
+hide_results()

@@ -102,22 +102,22 @@
         </form>
 
         <!-- Solid divider line -->
-        <hr class="solid">
+        <hr id="form and results line 1/2" class="solid">
 
         <!-- Temporary results buffer -->
-        <h2 class="results-title" id="results">Results</h2>
+        <h2 class="results-title" hidden="hidden" id="results">Results</h2>
          <div class="results-contents" id="results-contents">
-            <p id="finished album">finished album</p>
-            <p id="finished trip">finished trip</p>
-            <p id="avg. mph speed">avg. mph speed</p>
-            <p id="avg. minutes per mile">avg. minutes per miles</p>
-            <p id="songs listened to">songs listened to</p>
-            <p id="mile distance">mile distance</p>
-            <p id="minute distance">minute distance</p>
-            <p id="ms distance">ms distance</p>
-            <p id="counted ms distance">counted ms distance</p>
-            <p id="leftover minutes">leftover minutes</p>
-            <p id="leftover miles">leftover miles</p>
+            <p id="finished album"><b>finished album</b></p>
+            <p id="finished trip"><b>finished trip</b></p>
+            <p id="avg. mph speed"><b>avg. mph speed</b></p>
+            <p id="avg. minutes per mile"><b>avg. minutes per miles</b></p>
+            <p id="songs listened to"><b>songs listened to</b></p>
+            <p id="mile distance"><b>mile distance</b></p>
+            <p id="minute distance"><b>minute distance</b></p>
+            <p id="ms distance"><b>ms distance</b></p>
+            <p id="counted ms distance"><b>counted ms distance</b></p>
+            <p id="leftover minutes"><b>leftover minutes</b></p>
+            <p id="leftover miles"><b>leftover miles</b></p>
          </div>
 
          <!-- Set up event listener for button submit, prevent form from refreshing page -->
@@ -144,6 +144,8 @@
             def process_click(why):
                 results = document.getElementById("results")
                 results.innerText = "Results: Loading..."
+                document.getElementById("data_form").remove()
+                document.getElementById("form and results line 1/2").remove()
                 run_muppet(why)
 
             # <!-- add event listener, proxy -->
@@ -155,12 +157,14 @@
         </py-script>
     </body>
 
+    <!-- Solid divider line -->
+    <hr class="solid">
+
     <!-- Footer with some minor credits -->
     <footer class="footer">
         <p>Note: This website is built for the mobile experience.</p>
-        <p>Access the github <a target="_blank" href="https://github.com/SketchedDoughnut/miles-to-muppets">here!</a></p>
-        <p>Made by SketchedDoughnut</p>
-        <p>MilesToMuppets package by SketchedDoughnut</p>
+        <p>Access the GitHub <a target="_blank" href="https://github.com/SketchedDoughnut/miles-to-muppets">here!</a></p>
+        <p>Created by SketchedDoughnut, Miles To Muppets by SketchedDoughnut</p>
     </footer>
 </html>
  
