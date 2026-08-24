@@ -38,45 +38,47 @@ class Muppet:
         The Spotify client ID
     client_secret: str
         The spotify client secret
-    redirect_uri: str
-        The redirect URI that you registered when creating your Spotify For Developers App. Help can be found [here](https://developer.spotify.com/documentation/web-api/concepts/apps).
     unit: Unit
         The distance unit that you prefer to use
     '''
 
     # sets up spotify API connection, gets data from that (as well as loads data from data file)
-    def __init__(self, client_id: str, client_secret: str, redirect_uri: str, unit: Unit) -> None:
+    def __init__(self, client_id: str, client_secret: str, unit: Unit) -> None:
         # all our urls
-        self._auth_url = 'https://accounts.spotify.com/authorize'
         self._token_url = 'https://accounts.spotify.com/api/token'
-        self._base_url = 'https://api.spotify.com/v1/'
         # our unit preference, token, and auth header
         self._unit = unit
-        self._client_id = client_id
-        self._client_secret = client_secret
-        self._redirect_uri = redirect_uri
         self._credentials = base64.b64encode((client_id + ':' + client_secret).encode()).decode()
+        self._token = self._authorize()
+        self._header = {
+            'Authorization': 'Bearer ' + self._token['access_token']
+        }
 
 
     # authorize
-    def _authorize(self):
-        # get our auth code
-        auth_payload = {
-            'client_id': self._client_id,
-            'response_type': 'code',
-            'redirect_uri': self._redirect_uri
-        }
-        res = requests.get(url=self._auth_url, params=auth_payload)
-        if res.status_code != 200: raise Exceptions.InvalidAuthorizationError(f'Your authorization credentials were invalid! {res.status_code}')
+    def _authorize(self) -> dict:
         # get our access token
         token_payload = {
-            'grant_type': 'authorization_code',
-            'code': res,
-            'redirect_uri': self._redirect_uri
+            'grant_type': 'client_credentials',
+            # 'code': auth_res,
+            # 'redirect_uri': self._redirect_uri
         }
         token_header = {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Basic ' + self._credentials
         }
-        res = requests.post(url=self._token_url, data=token_payload,headers=token_header)
+        token_res = requests.post(url=self._token_url, data=token_payload,headers=token_header)
+        if token_res.status_code != 200: raise Exceptions.InvalidAuthorizationError(f'Your authorization credentials were invalid! {token_res.status_code}')
+        return token_res.json()
+
+
+    # fetch all relevant muppets albums
+    def fetch_albums(self) -> str:
+        query = 'https://api.spotify.com/v1/search?q=The+Muppets&type=album&limit=5'
+        res = requests.get(url=query, headers=self._header)
         if res.status_code != 200: raise Exceptions.InvalidAuthorizationError(f'Your authorization credentials were invalid! {res.status_code}')
+        albums = []
+        for album in res.json()['albums']['items']:
+            if 'muppet' not in album['name'].lower(): continue
+            albums.append(album)
+        return albums
