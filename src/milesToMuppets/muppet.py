@@ -67,7 +67,7 @@ class Muppet:
             'redirect_uri': self._redirect_uri
         }
         res = requests.get(url=self._auth_url, params=auth_payload)
-        if res.status_code != 200: raise Exceptions.InvalidAuthorizationError('Your authorization credentials were invalid!')
+        if res.status_code != 200: raise Exceptions.InvalidAuthorizationError(f'Your authorization credentials were invalid! {res.status_code}')
         # get our access token
         token_payload = {
             'grant_type': 'authorization_code',
@@ -75,6 +75,8 @@ class Muppet:
             'redirect_uri': self._redirect_uri
         }
         token_header = {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic ' + self._credentials
         }
-        
+        res = requests.post(url=self._token_url, data=token_payload,headers=token_header)
+        if res.status_code != 200: raise Exceptions.InvalidAuthorizationError(f'Your authorization credentials were invalid! {res.status_code}')
