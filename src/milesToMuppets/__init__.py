@@ -19,8 +19,3 @@ essentially extending the files imported below, so instead of doing:
 
 # extending main controller, muppet
 from .muppet import *
-
-# extending getter functions, helper
-from .helpers import *
-
-version = "0.0.19"
